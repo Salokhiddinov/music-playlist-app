@@ -30,7 +30,7 @@ app.use('/js', express.static(path.resolve(__dirname, 'assets/js')))
 
 
 app.get("/", (req, res) => {
-  res.send("Music Playlist Application");
+  res.render('index');
 });
 
 app.listen(port, () => {
