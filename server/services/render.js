@@ -2,10 +2,10 @@ exports.homeRoutes = (req,res)=>{
     res.render('index');
 }
 
-exports.add_user=(req,res)=>{
-    res.render('add-user.ejs')
+exports.add_song=(req,res)=>{
+    res.render('add-song.ejs')
 }
 
-exports.update_user=(req,res)=>{
-    res.render('update-user.ejs')
+exports.update_song=(req,res)=>{
+    res.render('update-song.ejs')
 }
