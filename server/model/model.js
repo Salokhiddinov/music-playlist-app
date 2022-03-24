@@ -1,25 +1,25 @@
 const mongoose = require('mongoose');
 
-let schema = new mongoose.Schema({
-    artist:{
-        type: String,
-        required: true
+var schema = new mongoose.Schema({
+    artist : {
+        type : String,
+        required: [true, "Artist is required"]
     },
-    title:{
+    title : {
         type: String,
-        required: true
+        required: [true, "Title is required"],
     },
-    photo:{
+    coverImage:{
         type: String,
-        requited: false,
-        default: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fapkpure.com%2Fgama-free-mp3-music-download%2Fcom.music.gama.mp3.download&psig=AOvVaw3kRpMv2iNFoyejiAxC3Adt&ust=1648038214020000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJDj_vja2fYCFQAAAAAdAAAAABAN',
+        required: false,
+        default: "https://www.pngitem.com/pimgs/m/81-815706_purple-music-note-icon-purple-music-notes-logo.png"
     },
     year:{
         type: Number,
-        required: true
+        required: [true, "Year is required"],
     }
 })
 
-const UserDB = mongoose.model('userdb', schema);
+const Songdb = mongoose.model('Songdb', schema);
 
-module.exports = UserDB;
+module.exports = Songdb;
