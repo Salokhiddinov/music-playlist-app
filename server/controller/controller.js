@@ -1,60 +1,116 @@
-const Songdb = require("../model/model");
+const Song = require("../model/model");
 
-//Create
-exports.create = async (req, res) => {
-  if(!req.body){
-    return res.status(400).send({message: "Empty!"});
-  }
-
-  const newSong = await new Songdb.create(
-  //   {
-  //   artist: req.body.artist,
-  //   title: req.body.title,
-  //   coverImage: req.body.coverImage,
-  //   year: req.body.year,
-  // }
-  req.body
-  )
-
-  console.log("=====================");
-  console.log(song);
-  console.log("=====================");
-
-
-try{
-  res.status(201).json({
-    status: "success",
-    data: {
-      newSong
+// Create
+exports.createSong = async (req, res) => {
+  try {
+    if (!req.body) {
+      return res.status(400).send({ message: "Empty!" });
     }
-  })
-}
-catch(err){
-  res.status(400).json({
-    status: "failed",
-    message: err 
-  })
-}
 
-  
-  // song.save(song).then(data=>{
-  //   res.json({
+    const newSong = await Song.create(req.body);
 
-  //   });
-  // }).catch(err=>{
-  //   res.status(500).send({
-  //     message: err.message || "Error 505!"
-  //   })
-  // })
-
+    res.status(201).json({
+      status: "success",
+      data: {
+        newSong,
+      },
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: "failed",
+      message: err,
+    });
+  }
 };
 
-//Read
-exports.find = (req, res) => {};
+// Read
+exports.getAllSongs = async (req, res) => {
+  try {
+    const songs = await Song.find({});
+    if (!songs) {
+      res.status(404).json({
+        message: "Something went wrong",
+        status: 404,
+      });
+    }
 
-//Update
-exports.update = (req, res) => {};
+    res.status(200).json({
+      status: "success",
+      data: {
+        songs,
+      },
+    });
+  } catch (err) {
+    res.status(err.statusCode).json({
+      message: "Couldn't get Songs",
+      status: err.statusCode,
+      reason: err,
+    });
+  }
+};
 
-//Delete
-exports.delete = (req, res) => {};
+exports.getSong = async (req, res) => {
+  try {
+    const song = await Song.findById(req.params.id);
+    console.log(req.params);
+    if (!song) {
+      res.status(404).json({
+        message: "Couldn't find a song",
+        status: 404,
+      });
+    }
 
+    res.status(200).json({
+      status: "success",
+      data: {
+        song,
+      },
+    });
+  } catch (err) {
+    res.status(err.statusCode).json({
+      message: "Something went wrong",
+      status: err.statusCode,
+      reason: err,
+    });
+  }
+};
+
+// Update
+exports.updateSong = async (req, res) => {
+  try {
+    const song = await Song.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+
+    res.status(200).json({
+      status: "success",
+      data: {
+        song,
+      },
+    });
+  } catch (err) {
+    res.status(err.statusCode).json({
+      message: "Something went wrong",
+      status: err.statusCode,
+      reason: err,
+    });
+  }
+};
+
+// Delete
+exports.deleteSong = async (req, res) => {
+  try {
+    await Song.findByIdAndDelete(req.params.id);
+    res.status(204).json({
+      status: "success",
+      data: null,
+    });
+  } catch (err) {
+    res.status(err.statusCode).json({
+      message: "Something went wrong",
+      status: err.statusCode,
+      reason: err,
+    });
+  }
+};

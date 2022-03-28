@@ -1,31 +1,26 @@
 {
- 
-  "scripts": {
-    "start": "nodemon server.js"
-  },
   "name": "music-playlist-app",
-  "description": "",
   "version": "1.0.0",
+  "description": "",
   "main": "server.js",
   "dependencies": {
     "axios": "^0.26.1",
-    "body-parser": "^1.19.2",
     "dotenv": "^16.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.3",
-    "mongodb": "^4.4.1",
     "mongoose": "^6.2.7",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.15"
   },
-  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon server.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Salokhiddinov/music-playlist-app.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "00011256",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Salokhiddinov/music-playlist-app/issues"
   },
