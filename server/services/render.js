@@ -1,23 +1,14 @@
 const axios = require("axios");
-const port = process.env.PORT;
+const Song = require("../model/model");
 
 exports.homeRoutes = (req, res) => {
   res.render("index");
 };
 
-exports.all_songs_page = (req, res) => {
-    // Make a get request to /api/users
-    axios.get('http://localhost:3000/api/songs')
-        .then(function(response){
-            console.log(response);
-            res.render('all-songs', { songs : response.data });
-        })
-        .catch(err =>{
-            res.send(err);
-        })
-
-    
-}
+exports.all_songs_page = async (req, res) => {
+  const songs = await Song.find({});
+  res.render("all-songs.ejs", { songs: songs })
+};
 
 exports.add_song_page = (req, res) => {
   res.render("add-song.ejs");

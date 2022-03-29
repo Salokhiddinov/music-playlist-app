@@ -89,6 +89,22 @@ li {
 li:hover {
   transform: scale(1.1);
 }
+
+.add-song-a{
+  margin: 2rem 0;
+  display: inline-block;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: rgb(27, 27, 27);
+  border-radius: 10px;
+  transition: 0.2s all ease-out;
+}
+
+.add-song-a:hover{
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.062);
+}
+
 .heading-h2 {
   font-size: 2rem;
   text-align: center;
@@ -112,10 +128,12 @@ li:hover {
   border-radius: 20px;
   background-color: rgb(27, 27, 27);
   transition: all 0.3s ease-out;
+  margin-bottom: 5px;
+
 }
 .item-template {
   display: flex;
-  padding: 0.5rem 0;
+  padding: 0.5rem 2rem;
 }
 
 .list-item:hover {
@@ -171,6 +189,7 @@ li:hover {
   transition: 0.2s all ease-out;
   border-radius: 10px;
 }
+
 .btn-delete {
   padding-left: 1rem;
 }
@@ -182,6 +201,21 @@ li:hover {
 .fa-arrow-left-long {
   text-align: left;
 }
+.fa-circle-plus{
+display: inline-block;
+}
+
+form{
+
+  margin: auto;
+}
+
+.form-item{
+  display: flex;
+  justify-content: space-between;
+
+}
+
 
 @keyframes nav-show {
   from {
@@ -202,14 +236,23 @@ li:hover {
   .wrapper {
     width: 60%;
   }
+  form{
+    width:60%;
+  }
 }
 /* Tablets */
 @media (min-width: 600px) and (max-width: 1099px) {
+  *{
+    font-size: 0.7rem;
+  }
   nav {
     width: 35%;
   }
   .wrapper {
     width: 70%;
+  }
+  form{
+    width:80%;
   }
 }
 
