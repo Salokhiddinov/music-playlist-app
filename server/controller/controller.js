@@ -47,7 +47,7 @@ exports.getAllSongs = async (req, res) => {
       reason: err,
     });
   }
-};
+}; 
 
 exports.getSong = async (req, res) => {
   try {
@@ -63,7 +63,7 @@ exports.getSong = async (req, res) => {
     res.status(200).json({
       status: "success",
       data: {
-        song,
+        song, 
       },
     });
   } catch (err) {

@@ -1,37 +1,15 @@
-<!-- include header -->
+<%- include("include/head.ejs") %>
+<body>
 <%- include('include/_header.ejs')%>
-<!-- /include header -->
 
-<!-- Main Site -->
 <main>
-  <div class="wrapper">
-    <div class="box-nav">
-      <a href="/add-song">
-        <span>New User</span>
-      </a>
-    </div>
-
-    <!-- form handling -->
-    <form action="/" method="POST">
-      <table class="table">
-        <thead>
-          <th>ID</th>
-          <th>Photo</th>
-          <th>Artist</th>
-          <th>Title</th>
-          <th>Year</th>
-         
-        </thead>
-        <tbody>
-          <%- include('include/_show.ejs')%>
-        </tbody>
-      </table>
-    </form>
-    <!-- /form handling -->
-  </div>
+  <a href="/all-songs">All songs</a>
 </main>
 <!-- /Main Site -->
 
 <!-- include footer -->
 <%- include('include/_footer')%>
 <!-- /include footer -->
+
+</body>
+</html>

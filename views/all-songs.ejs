@@ -1,0 +1,71 @@
+
+  <%- include("include/head.ejs") %>
+  <body>
+    <%- include("include/_header.ejs") %>
+
+    <section>
+      <h2 class="heading-h2 white">My Playlist</h2>
+      <div class="wrapper">
+        <div class="item-template">
+          <div class="item-image-div">
+            <span class="item-image grey">Photo</span>
+          </div>
+          <div class="item-info">
+            <span class="item-title grey">Title</span>
+            <span class="item-artist grey">Artist</span>
+            <span class="item-year grey">Year</span>
+          </div>
+          <div class="item-actions grey">
+            <span>Actions</span>
+          </div>
+        </div>
+
+        <!-- ---------Getting the list of songs from Atlass----------- -->
+        <div class="all-items">
+          <tbody>
+            <% for(var i = 0; i < songs.length; i++) { %>
+            <tr>
+              <td><%= i + 1 %></td>
+              <td><%= songs[i].artist %></td>
+              <td><%= songs[i].title %></td>
+              <td><%= songs[i].year %></td>
+              <td><%= songs[i].year %></td>
+              <td>
+                  <a href="/update-user?id=<%= songs[i]._id%>" class="btn border-shadow update">
+                      <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                  </a>
+                  <a class="btn border-shadow delete" data-id=<%= songs[i]._id%> >
+                      <span class="text-gradient"><i class="fas fa-times"></i></span>
+                  </a>
+              </td>
+            </tr>
+          <% } %>
+          </tbody>
+          <tr>
+          <!-- <% for(let x = 0; x < songs.length; x++){ %>
+            <tr>
+              <td><%= x+1 %></td>
+              <td><img src="<%= songs[x].coverImage %>" alt="photo" /></td> -->
+              <!-- <td><%= songs[x].artist %></td>
+              <td><%= songs[x].title %></td>
+              <td>2020</td>
+              <td>
+                <a href="/update-song">
+                  <i class="fa-solid fa-pen white btn-update btn-action"></i>
+                </a>
+              </td>
+              <td>
+                <i class="fa-solid fa-trash-can red btn-delete btn-action"></i>
+              </td>
+            </tr>
+            <% } %> -->
+        </div>
+
+
+
+      </div>
+      <%= songs[1] %>
+      
+    </section>
+  </body>
+</html>

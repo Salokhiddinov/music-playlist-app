@@ -7,6 +7,7 @@ const controller = require("../controller/controller");
 route.get("/", services.homeRoutes);
 route.get("/add-song", services.add_song_page);
 route.get("/update-song", services.update_song_page);
+route.get("/all-songs", services.all_songs_page);
 
 // Back-end (API) routes
 route.get("/api/songs", controller.getAllSongs);
