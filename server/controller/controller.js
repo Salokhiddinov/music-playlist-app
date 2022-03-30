@@ -8,13 +8,13 @@ exports.createSong = async (req, res) => {
     }
 
     const newSong = await Song.create(req.body);
-
-    res.status(201).json({
-      status: "success",
-      data: {
-        newSong,
-      },
-    });
+    res.redirect("/all-songs");
+    // res.status(201).json({
+    //   status: "success",
+    //   data: {
+    //     newSong,
+    //   },
+    // });
   } catch (err) {
     res.status(400).json({
       status: "failed",
@@ -47,7 +47,7 @@ exports.getAllSongs = async (req, res) => {
       reason: err,
     });
   }
-}; 
+};
 
 exports.getSong = async (req, res) => {
   try {
@@ -63,7 +63,7 @@ exports.getSong = async (req, res) => {
     res.status(200).json({
       status: "success",
       data: {
-        song, 
+        song,
       },
     });
   } catch (err) {

@@ -6,10 +6,16 @@
     <section>
       <h2 class="heading-h2 white">My Playlist</h2>
       <div class="wrapper">
-        <a href="/add-song" class="white add-song-a">
-          <span>Add New Song  </span>
-          <i class="fa-solid fa-circle-plus white"></i>
-        </a>
+        <div class="links">
+          <a href="/add-song" class="white add-song-a">
+            <span>Add New Song  </span>
+            <i class="fa-solid fa-circle-plus white"></i>
+          </a>
+          <a href="#" class="white add-song-a">
+            <span>Refresh </span>
+            <i class="fa-solid fa-arrows-rotate white"></i>
+          </a>
+        </div>
         <div class="item-template">
           <span class="item-num grey">№</span>
           <div class="item-image-div">
@@ -43,10 +49,10 @@
                   <span class="item-year white"><%= songs[x].year %></span>
                 </div>
                 <div class="item-actions">
-                  <a href="">
+                  <a href="/update-song?id=<%= songs[x]._id%>">
                     <i class="fa-solid fa-pen white btn-update btn-action"></i>
                   </a>
-                  <a href="">
+                  <a data-id=<%= songs[x]._id%> class="btn-delete">
                     <i class="fa-solid fa-trash-can red btn-delete btn-action"></i>
                   </a>
                 </div>
@@ -55,5 +61,5 @@
         </div>
       </div>      
     </section>
-  </body>
-</html>
+    <script src="/js/script.js"></script>
+<%- include('include/_footer.ejs') %>
