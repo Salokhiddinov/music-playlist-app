@@ -1,65 +1,69 @@
+<%- include("include/_header.ejs") %>
 
-  <%- include("include/head.ejs") %>
-  <body>
-    <%- include("include/_header.ejs") %>
+<section>
+  <h2 class="heading-h2 white">My Playlist</h2>
+  <div class="wrapper">
+    <div class="links">
+      <a href="/add-song" class="white add-song-a">
+        <span>Add New Song </span>
+        <i class="fa-solid fa-circle-plus white"></i>
+      </a>
+      <a href="#" class="white add-song-a">
+        <span>Refresh </span>
+        <i class="fa-solid fa-arrows-rotate white"></i>
+      </a>
+    </div>
+    <div class="item-template">
+      <span class="item-num grey">№</span>
+      <div class="item-image-div">
+        <span class="item-image grey">Photo</span>
+      </div>
+      <div class="item-info">
+        <span class="item-title grey">Title</span>
+        <span class="item-artist grey">Artist</span>
+        <span class="item-year grey">Year</span>
+      </div>
+      <div class="item-actions grey">
+        <span>Actions</span>
+      </div>
+    </div>
 
-    <section>
-      <h2 class="heading-h2 white">My Playlist</h2>
-      <div class="wrapper">
-        <div class="links">
-          <a href="/add-song" class="white add-song-a">
-            <span>Add New Song  </span>
-            <i class="fa-solid fa-circle-plus white"></i>
+    <!-- ---------Getting the list of songs from Atlass----------- -->
+
+    <div class="all-items">
+      <% for(let x = 0; x < songs.length; x++) { %>
+      <div class="list-item">
+        <span class="item-num grey"><%= x+1 %></span>
+        <div class="item-image-div">
+          <img
+            src="<%= songs[x].coverImage %>"
+            alt="cover"
+            class="item-image"
+          />
+        </div>
+        <div class="item-info">
+          <span class="item-title white"><%= songs[x].title %></span>
+          <span class="item-artist white"><%= songs[x].artist %></span>
+          <span class="item-year white"><%= songs[x].year %></span>
+        </div>
+        <div class="item-actions">
+          <a href="/get-song/?id=<%= songs[x]._id%>" class="a-action">
+            <i class="fa-solid fa-eye btn-action btn-update"></i>
           </a>
-          <a href="#" class="white add-song-a">
-            <span>Refresh </span>
-            <i class="fa-solid fa-arrows-rotate white"></i>
+          <a
+            href="/update-song/?id=<%= songs[x]._id%>"
+            class="btn-delete a-action"
+          >
+            <i class="fa-solid fa-pen white btn-update btn-action"></i>
+          </a>
+          <a data-id="<%= songs[x]._id%>" class="btn-delete a-action">
+            <i class="fa-solid fa-trash-can red btn-delete btn-action"></i>
           </a>
         </div>
-        <div class="item-template">
-          <span class="item-num grey">№</span>
-          <div class="item-image-div">
-            <span class="item-image grey">Photo</span>
-          </div>
-          <div class="item-info">
-            <span class="item-title grey">Title</span>
-            <span class="item-artist grey">Artist</span>
-            <span class="item-year grey">Year</span>
-          </div>
-          <div class="item-actions grey">
-            <span>Actions</span>
-          </div>
-        </div>
-
-        <!-- ---------Getting the list of songs from Atlass----------- -->
-        <div class="all-items">
-            <% for(let x = 0; x < songs.length; x++) { %>
-              <div class="list-item">
-                <span class="item-num grey"><%= x+1 %></span>
-                <div class="item-image-div">
-                  <img
-                    src="<%= songs[x].coverImage %>"
-                    alt="cover"
-                    class="item-image"
-                  />
-                </div>
-                <div class="item-info">
-                  <span class="item-title white"><%= songs[x].title %></span>
-                  <span class="item-artist white"><%= songs[x].artist %></span>
-                  <span class="item-year white"><%= songs[x].year %></span>
-                </div>
-                <div class="item-actions">
-                  <a href="/update-song?id=<%= songs[x]._id%>">
-                    <i class="fa-solid fa-pen white btn-update btn-action"></i>
-                  </a>
-                  <a data-id=<%= songs[x]._id%> class="btn-delete">
-                    <i class="fa-solid fa-trash-can red btn-delete btn-action"></i>
-                  </a>
-                </div>
-              </div>
-          <% } %>
-        </div>
-      </div>      
-    </section>
-    <script src="/js/script.js"></script>
+      </div>
+      <% } %>
+    </div>
+  </div>
+</section>
+<script src="/js/script.js"></script>
 <%- include('include/_footer.ejs') %>

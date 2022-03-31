@@ -1,9 +1,8 @@
-<%- include('include/head.ejs')%> <%- include('include/_header.ejs')%>
+<%- include('include/_header.ejs')%>
 
 <div class="wrapper">
-  <h2 class="heading-h2 white">Add a song</h2>
-
-  <form method="POST" id="add_song" action="/api/songs">
+  <h2 class="heading-h2 white">Update</h2>
+  <form method="PUT" id="update-song" action="/api/songs">
     <a href="/all-songs" class="add-song-a white">&lt&lt All Users</a>
     <div class="form-item">
       <label for="name" class="white label">Artist</label>

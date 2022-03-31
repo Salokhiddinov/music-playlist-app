@@ -1,0 +1,20 @@
+<%- include('include/_header.ejs')%>
+
+<div class="wrapper">
+    <a href="/all-songs" class="add-song-a white">&lt&lt All Users</a>
+</div>
+  <div class="get-song-section">
+    <img src="<%= song.coverImage %>" alt="" class="large-img" />
+    <div>
+      <h2 class="get-song-title white"><%= song.title %></h2>
+    </div>
+    <div>
+      <h3 class="get-song-artist white"><%= song.artist %></h3>
+    </div>
+    <div class="get-song-year">
+      <span class="grey">Year: </span>
+      <span class="white"><strong><%= song.year %></strong></span>
+    </div>
+  </div>
+
+<%- include('include/_footer.ejs')%>

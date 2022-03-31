@@ -57,12 +57,13 @@ header {
 }
 .wrapper {
   margin: auto;
+  position: relative;
 }
 
 nav {
   display: block;
   position: absolute;
-  background: rgba(0, 0, 0, 0.644);
+  background: rgb(0, 0, 0);
   right: 0;
   height: 100vh;
   width: 5rem;
@@ -189,9 +190,6 @@ li:hover {
   border-radius: 10px;
 }
 
-.btn-delete {
-  padding-left: 1rem;
-}
 .btn-update:hover,
 .btn-delete:hover {
   transform: scale(1.2);
@@ -215,7 +213,7 @@ form {
   padding-bottom: 2rem;
 }
 
-input{
+input {
   padding: 10px;
   border-radius: 1rem;
   border-style: none;
@@ -225,23 +223,49 @@ input{
   background-color: rgb(8, 8, 8);
   width: 100%;
 }
-label{
-  padding: 5px 0
+label {
+  padding: 5px 0;
 }
 
-.form-comment{
+.form-comment {
   width: 100%;
   margin: auto;
   text-align: center;
-
 }
-.submit-form{
+.submit-form {
   padding: 1rem 2rem;
   color: white;
   background-color: rgb(0, 158, 0);
   border-style: none;
   border-radius: 2rem;
   width: 100%;
+}
+.a-action {
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+.item-actions {
+  text-align: center;
+}
+
+.get-song-title{
+  text-align: center;
+}
+.get-song-artist{
+  text-align: center;
+}
+.get-song-year {
+  text-align: center;
+}
+.large-img {
+  height: 40vh;
+  border-radius: 80vh;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
 }
 
 @keyframes nav-show {
@@ -285,6 +309,9 @@ label{
 
 /* Mobile */
 @media screen and (max-width: 599px) {
+  * {
+    font-size: 0.7rem;
+  }
   nav {
     width: 100%;
   }
@@ -302,7 +329,20 @@ label{
     flex-direction: column;
     width: 75%;
   }
-  form{
+  form {
     width: 100%;
+  }
+  .item-actions {
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+  }
+  .a-action {
+    margin: 1rem 0 1rem 0;
+  }
+  .large-img {
+    height: 20vh;
+    border-radius: 80vh;
   }
 }

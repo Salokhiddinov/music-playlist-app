@@ -6,7 +6,7 @@ exports.createSong = async (req, res) => {
     if (!req.body) {
       return res.status(400).send({ message: "Empty!" });
     }
-
+    console.log(req.body);
     const newSong = await Song.create(req.body);
     res.redirect("/all-songs");
     // res.status(201).json({
@@ -50,29 +50,7 @@ exports.getAllSongs = async (req, res) => {
 };
 
 exports.getSong = async (req, res) => {
-  try {
-    const song = await Song.findById(req.params.id);
-    console.log(req.params);
-    if (!song) {
-      res.status(404).json({
-        message: "Couldn't find a song",
-        status: 404,
-      });
-    }
-
-    res.status(200).json({
-      status: "success",
-      data: {
-        song,
-      },
-    });
-  } catch (err) {
-    res.status(err.statusCode).json({
-      message: "Something went wrong",
-      status: err.statusCode,
-      reason: err,
-    });
-  }
+  res.send("/get-song");
 };
 
 // Update
