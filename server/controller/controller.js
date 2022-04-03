@@ -1,18 +1,16 @@
 const Song = require("../model/model");
 
-// Create
-exports.createSong = async (req, res) => {
-  try {
-    const date = new Date();
+function checkValidation(){
+  const date = new Date();
     if (!req.body) {
       return res.status(400).send({ message: "Empty!" });
     }
     if(req.body.artist.trim() === ''){
-      alert('The name of artist is needed!')
+      alert('🎤The name of artist is needed🎤')
       return;
     }
     if(req.body.title.trim() === ''){
-      alert('The title is needed!')
+      alert('🎤The title is needed🎤')
       return;
     }
     if (req.body.coverImage.trim() === "") {
@@ -22,24 +20,21 @@ exports.createSong = async (req, res) => {
     if(req.body.year.length !==4 ){
       alert('The year is not valid')
       return;
-    }
-    if(req.body.year > date.getFullYear()){
+    }else if(req.body.year > date.getFullYear()){
       alert('Dude, are you from the future?👽')
       return;
-    }
-    if(req.body.year < 1900){
-      alert('')
+    }else if(req.body.year < 1900){
+      alert(`Don't you feel the smell of a Mammoth🦣? Check the year😜`)
       return;
     }
+}
 
+// Create
+exports.createSong = async (req, res) => {
+  try {
+    checkValidation();
     const newSong = await Song.create(req.body);
     res.redirect("/all-songs");
-    // res.status(201).json({
-    //   status: "success",
-    //   data: {
-    //     newSong,
-    //   },
-    // });
   } catch (err) {
     res.status(400).json({
       status: "failed",
@@ -81,6 +76,7 @@ exports.getSong = async (req, res) => {
 // Update
 exports.updateSong = async (req, res) => {
   try {
+    checkValidation()
     const song = await Song.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true,

@@ -18,4 +18,8 @@ route.post("/api/songs", controller.createSong);
 route.put("/api/songs/:id", controller.updateSong);
 route.delete("/api/songs/:id", controller.deleteSong);
 
+// Not found redirect
+route.get("*", services.not_found_page);
+
+
 module.exports = route;

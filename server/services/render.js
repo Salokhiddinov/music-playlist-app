@@ -4,6 +4,9 @@ const Song = require("../model/model");
 exports.homeRoutes = (req, res) => {
   res.render("index");
 };
+exports.not_found_page = (req,res)=>{
+  res.render('not-found.ejs')
+}
 
 exports.all_songs_page = async (req, res) => {
   const songs = await Song.find({});
