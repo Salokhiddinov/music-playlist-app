@@ -1,24 +1,27 @@
 $("#update-song").submit(function (event) {
   event.preventDefault();
 
-  var temp_array = $(this).serializeArray();
-  var data = {};
-  console.log(temp_array);
-  $.map(temp_array, function (n, i) {
-    data[n["name"]] = n["value"];
-  });
 
-  var request = {
-    url: `/api/songs/${data.id}`,
-    method: "PUT",
-    data: data,
-  };
+
+    var temp_array = $(this).serializeArray();
+    var data = {};
+    console.log(temp_array);
+    $.map(temp_array, function (n, i) {
+      data[n["name"]] = n["value"];
+    });
+
+    var request = {
+      url: `/api/songs/${data.id}`,
+      method: "PUT",
+      data: data,
+    }
 
   $.ajax(request).done(function (response) {
-    alert("Data Updated Successfully!");
+      alert("Data Updated Successfully!");
   });
   window.location.replace("/all-songs");
-});
+  }
+);
 
 ////////// For delete //////////////////
 

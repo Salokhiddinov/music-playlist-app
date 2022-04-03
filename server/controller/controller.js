@@ -1,38 +1,13 @@
 const Song = require("../model/model");
+// Create
+exports.createSong = async (req, res) => {
+  try {
 
-function checkValidation(){
-  const date = new Date();
-    if (!req.body) {
-      return res.status(400).send({ message: "Empty!" });
-    }
-    if(req.body.artist.trim() === ''){
-      alert('🎤The name of artist is needed🎤')
-      return;
-    }
-    if(req.body.title.trim() === ''){
-      alert('🎤The title is needed🎤')
-      return;
-    }
     if (req.body.coverImage.trim() === "") {
       req.body.coverImage =
         "https://www.pngitem.com/pimgs/m/81-815706_purple-music-note-icon-purple-music-notes-logo.png";
     }
-    if(req.body.year.length !==4 ){
-      alert('The year is not valid')
-      return;
-    }else if(req.body.year > date.getFullYear()){
-      alert('Dude, are you from the future?👽')
-      return;
-    }else if(req.body.year < 1900){
-      alert(`Don't you feel the smell of a Mammoth🦣? Check the year😜`)
-      return;
-    }
-}
 
-// Create
-exports.createSong = async (req, res) => {
-  try {
-    checkValidation();
     const newSong = await Song.create(req.body);
     res.redirect("/all-songs");
   } catch (err) {
@@ -76,7 +51,12 @@ exports.getSong = async (req, res) => {
 // Update
 exports.updateSong = async (req, res) => {
   try {
-    checkValidation()
+    
+    if (req.body.coverImage.trim() === "") {
+      req.body.coverImage =
+        "https://www.pngitem.com/pimgs/m/81-815706_purple-music-note-icon-purple-music-notes-logo.png";
+    }
+
     const song = await Song.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true,

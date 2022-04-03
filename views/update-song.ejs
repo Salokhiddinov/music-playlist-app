@@ -6,17 +6,13 @@
     <a href="/all-songs" class="add-song-a white">&lt&lt All Users</a>
     <div class="form-item">
       <label for="name" class="white label">Artist</label>
-      <input
-        type="hidden"
-        name="id"
-        class="artist-input"
-        value="<%= song._id %>"
-      />
+      <input type="hidden" name="id" class="id-input" value="<%= song._id %>" />
       <input
         type="text"
         name="artist"
         value="<%= song.artist %>"
         placeholder="Artist"
+        class="artist-input"
       />
     </div>
     <div class="form-item">
@@ -36,7 +32,7 @@
         name="coverImage"
         value="<%= song.coverImage %>"
         placeholder="URL from Google"
-        class="url-input"
+        class="cover-image-input"
       />
     </div>
     <span class="grey form-comment form-item"
@@ -50,6 +46,7 @@
         value="<%= song.year %>"
         name="year"
         placeholder="Year"
+        class="year-input"
       />
     </div>
     <button class="submit-form">Submit</button>
