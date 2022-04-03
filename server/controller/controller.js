@@ -3,10 +3,35 @@ const Song = require("../model/model");
 // Create
 exports.createSong = async (req, res) => {
   try {
+    const date = new Date();
     if (!req.body) {
       return res.status(400).send({ message: "Empty!" });
     }
-    console.log(req.body);
+    if(req.body.artist.trim() === ''){
+      alert('The name of artist is needed!')
+      return;
+    }
+    if(req.body.title.trim() === ''){
+      alert('The title is needed!')
+      return;
+    }
+    if (req.body.coverImage.trim() === "") {
+      req.body.coverImage =
+        "https://www.pngitem.com/pimgs/m/81-815706_purple-music-note-icon-purple-music-notes-logo.png";
+    }
+    if(req.body.year.length !==4 ){
+      alert('The year is not valid')
+      return;
+    }
+    if(req.body.year > date.getFullYear()){
+      alert('Dude, are you from the future?👽')
+      return;
+    }
+    if(req.body.year < 1900){
+      alert('')
+      return;
+    }
+
     const newSong = await Song.create(req.body);
     res.redirect("/all-songs");
     // res.status(201).json({

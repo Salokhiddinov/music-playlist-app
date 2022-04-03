@@ -2,16 +2,21 @@
 
 <div class="wrapper">
   <h2 class="heading-h2 white">Update</h2>
-  <form method="PUT" id="update-song" action="/api/songs">
+  <form method="POST" id="update-song">
     <a href="/all-songs" class="add-song-a white">&lt&lt All Users</a>
     <div class="form-item">
       <label for="name" class="white label">Artist</label>
-      <input type="hidden" name="id" class="artist-input" />
+      <input
+        type="hidden"
+        name="id"
+        class="artist-input"
+        value="<%= song._id %>"
+      />
       <input
         type="text"
         name="artist"
         value="<%= song.artist %>"
-        placeholder="The Weeknd"
+        placeholder="Artist"
       />
     </div>
     <div class="form-item">
@@ -20,7 +25,7 @@
         type="text"
         name="title"
         value="<%= song.title %>"
-        placeholder="Starboy"
+        placeholder="Title"
         class="title-input"
       />
     </div>
@@ -44,7 +49,7 @@
         type="number"
         value="<%= song.year %>"
         name="year"
-        placeholder="2016"
+        placeholder="Year"
       />
     </div>
     <button class="submit-form">Submit</button>

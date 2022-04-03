@@ -20,7 +20,14 @@ exports.get_song_page = async (req, res) => {
 };
 
 exports.update_song_page = async (req, res) => {
-  const song = await Song.findByIdAndUpdate({ _id: req.query.id });
-  console.log(song);
-  res.render("update-song.ejs", { song: song });
+  try{
+    const songData = await Song.findByIdAndUpdate({ _id: req.query.id });
+    res.render("update-song.ejs", { song: songData });
+  }
+  catch(error){
+    res.status(404).send({
+      status: 'failed',
+      message: error
+    })
+  }
 };

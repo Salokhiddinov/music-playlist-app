@@ -1,23 +1,18 @@
-<%- include('include/head.ejs')%> <%- include('include/_header.ejs')%>
+<%- include('include/_header.ejs')%>
 
 <div class="wrapper">
   <h2 class="heading-h2 white">Add a song</h2>
 
-  <form method="POST" id="add_song" action="/api/songs">
+  <form method="POST" id="add-song" action="/api/songs">
     <a href="/all-songs" class="add-song-a white">&lt&lt All Users</a>
     <div class="form-item">
       <label for="name" class="white label">Artist</label>
-      <input type="hidden" name="id" value="" class="artist-input" />
+      <!-- <input type="hidden" name="id" value="" class="artist-input" /> -->
       <input type="text" name="artist" placeholder="Artist" />
     </div>
     <div class="form-item">
       <label for="title" class="white label">Title</label>
-      <input
-        type="text"
-        name="title"
-        placeholder="Title"
-        class="title-input"
-      />
+      <input type="text" name="title" placeholder="Title" class="title-input" />
     </div>
     <div class="form-item">
       <label for="url" class="white label">Link to Photo (Optional)</label>
