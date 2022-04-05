@@ -54,10 +54,10 @@ The following structure is a bit different from the one that is recommended, but
 ----------------📄render.js                                                 
 -----------📁routers                                           
 ----------------📄router.js                                                       
--------📁view                                                                                                
+-------📁view                                                          
 -----------📄index.ejs                                           	                                       	
+-----------📄update-song.ejs                                            
 -----------📄add-song.ejs                                                                       
------------📄update-song.ejs                                                               
 -----------📁templates                                                    
 -----------------📄theHeader.ejs                                  
 -----------------📄theFooter.ejs                                              
