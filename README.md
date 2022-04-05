@@ -54,13 +54,13 @@ The following structure is a bit different from the one that is recommended, but
 ----------------📄render.js                                                 
 -----------📁routers                                           
 ----------------📄router.js                                                       
--------📁view                                                          
------------📄index.ejs                                           	                                       	
------------📄update-song.ejs                                            
------------📄add-song.ejs                                                                       
------------📁templates                                                    
------------------📄theHeader.ejs                                  
------------------📄theFooter.ejs                                              
+-------📁view                                                                                                              
+-----------📄index.ejs                                                                                          	                                       	
+-----------📄update-song.ejs                                                                                        
+-----------📄add-song.ejs                                                                                                               
+-----------📁templates                                                                                                      
+-----------------📄theHeader.ejs                                                       
+-----------------📄theFooter.ejs                                                                               
 
 00011256 || Web Technology CW2
 
