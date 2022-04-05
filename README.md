@@ -35,32 +35,32 @@ Here you will get a link to a localhost link. For example https://localhost:3000
 ## Project Structure.
 The following structure is a bit different from the one that is recommended, but for personal convenience the files were separated by folders that makes the code of an application easier to track. All of the scripts are located in separate .js files and in my opinion this structure is more professional and more appropriate for bigger projects.
 
---📁application     
-------📄app.js         
-------📁node-modules         
-------📁assets      
------------📁css         
-----------------📄style.css       
------------📁js             
-----------------📄index.js           
-------📁server           
------------📁database     
-----------------📄connection.js          
------------📁controller          
-----------------📄controller.js          
------------📁model          
-----------------📄model.js            
------------📁service.           
-----------------📄render.js            
------------📁routers              
-----------------📄router.js          
--------📁view                            
------------📄index.ejs	                     	
------------📄createStudent.ejs                   
------------📄updateStudent.ejs                      
------------📁templates                      
------------------📄theHeader.ejs                  
------------------📄theFooter.ejs              
+--📁application                                             
+------📄app.js                                      
+------📁node-modules                                   
+------📁assets                                           
+-----------📁css                                          
+----------------📄style.css                                         
+-----------📁js                                             
+----------------📄index.js                                              
+------📁server                                         
+-----------📁database                                        
+----------------📄connection.js                                       
+-----------📁controller                                           
+----------------📄controller.js                               
+-----------📁model                                            
+----------------📄model.js                                          
+-----------📁service                                                                           
+----------------📄render.js                                                 
+-----------📁routers                                           
+----------------📄router.js                                                       
+-------📁view                                                                 
+-----------📄index.ejs             	                                       	
+-----------📄add-song.ejs                                            
+-----------📄update-song.ejs                                                               
+-----------📁templates                                                    
+-----------------📄theHeader.ejs                                  
+-----------------📄theFooter.ejs                                              
 
 00011256 || Web Technology CW2
 
